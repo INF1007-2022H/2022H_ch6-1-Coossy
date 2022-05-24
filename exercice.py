@@ -2,6 +2,10 @@
 # -*- coding: utf-8 -*-
 
 
+from pkgutil import iter_modules
+from re import X
+
+
 def order(values: list = None) -> list:
     lettre, nombre = [], []
     if values is None:
@@ -31,9 +35,10 @@ def anagrams(words: list = None) -> bool:
 
     
 def contains_doubles(items: list) -> bool:
-    return False
-
-
+    print(items)
+    return len(set(items)) != len(items)
+        
+        
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
     return {}
@@ -63,8 +68,8 @@ def main() -> None:
     #print(f"On vérifie les anagrammes...")
     #print(anagrams())
 
-    my_list = [3, 3, 5, 6, 1, 1]
-    print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
+    #my_list = [3, 3, 5, 6, 1, 1]
+    #print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
 
     grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
     best_student = best_grades(grades)

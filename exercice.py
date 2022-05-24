@@ -3,11 +3,21 @@
 
 
 def order(values: list = None) -> list:
+    lettre, nombre = [], []
     if values is None:
-        # TODO: demander les valeurs ici
-        pass
+        values = []
+        while len(values) != 10:
+            valeur = input("Entrez une valeur :")
+            values.append(valeur)
 
-    return []
+    for elem in values:
+        if elem.isalpha():
+            lettre.append(elem)
+        else:
+            nombre.append(float(elem))
+
+    return sorted(nombre) + sorted(lettre)
+
 
 
 def anagrams(words: list = None) -> bool:
@@ -46,7 +56,7 @@ def print_recipe(ingredients) -> None:
 
 def main() -> None:
     print(f"On essaie d'ordonner les valeurs...")
-    order()
+    print(order())
 
     print(f"On vérifie les anagrammes...")
     anagrams()

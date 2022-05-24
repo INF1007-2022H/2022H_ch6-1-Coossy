@@ -22,12 +22,14 @@ def order(values: list = None) -> list:
 
 def anagrams(words: list = None) -> bool:
     if words is None:
-        # TODO: demander les mots ici
-        pass
+        words = []
+        while len(words) != 2:
+            mot = input("Entrez un mot : ")
+            words.append(mot)
+    
+    return sorted(words[0]) == sorted(words[1])
 
-    return False
-
-
+    
 def contains_doubles(items: list) -> bool:
     return False
 
@@ -55,11 +57,11 @@ def print_recipe(ingredients) -> None:
 
 
 def main() -> None:
-    print(f"On essaie d'ordonner les valeurs...")
-    print(order())
+    # print(f"On essaie d'ordonner les valeurs...")
+    # print(order())
 
-    print(f"On vérifie les anagrammes...")
-    anagrams()
+    #print(f"On vérifie les anagrammes...")
+    #print(anagrams())
 
     my_list = [3, 3, 5, 6, 1, 1]
     print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")

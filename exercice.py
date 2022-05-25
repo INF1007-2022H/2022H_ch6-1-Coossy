@@ -41,14 +41,22 @@ def contains_doubles(items: list) -> bool:
         
 def best_grades(student_grades: dict) -> dict:
     # TODO: Retourner un dictionnaire contenant le nom de l'étudiant ayant la meilleure moyenne ainsi que sa moyenne
-    return {}
+    Meilleur_étudiant = dict()
+    for key, value in student_grades.items():
+        moyenne = sum(value) / len(value)
+        Meilleur_étudiant = { key : moyenne}
+    return Meilleur_étudiant
 
-
+    
 def frequence(sentence: str) -> dict:
-    # TODO: Afficher les lettres les plus fréquentes
-    #       Retourner le tableau de lettres
+    dictionnaire = dict()
+    for char in sentence:
+        if (sentence.count(char)) > 5:
+            dictionnaire[char] = sentence.count(char)
+    
+    return (sorted(dictionnaire, key=dictionnaire.__getitem__, reverse = True))
 
-    return {}
+    
 
 
 def get_recipes():
@@ -71,12 +79,12 @@ def main() -> None:
     #my_list = [3, 3, 5, 6, 1, 1]
     #print(f"Ma liste contient-elle des doublons? {contains_doubles(my_list)}")
 
-    grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
-    best_student = best_grades(grades)
-    print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
+    # grades = {"Bob": [90, 65, 20], "Alice": [85, 75, 83]}
+    # best_student = best_grades(grades)
+    # print(f"{list(best_student.keys())[0]} a la meilleure moyenne: {list(best_student.values())[0]}")
 
-    sentence = "bonjour, je suis une phrase. je suis compose de beaucoup de lettre. oui oui"
-    frequence(sentence)
+    # sentence = "bonjour, je suis une phrase. je suis compose de beaucoup de lettre. oui oui"
+    # print(frequence(sentence))
 
     print("On enregistre les recettes...")
     recipes = get_recipes()
